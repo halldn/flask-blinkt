@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <main>
+    <div class="section-content">
+      <h2>Pulse LED Array</h2>
+
+      <form method="POST" action="/pulse">
+        {{ form.csrf_token }}
+
+        <div class="form-group">
+          {{ form.red_value.label }}
+
+          {% if form.red_value.errors %}
+            {% for error in form.red_value.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.red_value }}
+        </div>
+
+        <div class="form-group">
+          {{ form.green_value.label }}
+
+          {% if form.green_value.errors %}
+            {% for error in form.green_value.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.green_value }}
+        </div>
+
+        <div class="form-group">
+          {{ form.blue_value.label }}
+
+          {% if form.blue_value.errors %}
+            {% for error in form.blue_value.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.blue_value }}
+        </div>
+
+        <div class="form-group">
+          {{ form.step_count.label }}
+
+          {% if form.step_count.errors %}
+            {% for error in form.step_count.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.step_count }}
+        </div>
+
+        <div class="form-group">
+          {{ form.delay_time.label }}
+
+          {% if form.delay_time.errors %}
+            {% for error in form.delay_time.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.delay_time }}
+        </div>
+
+        {{ form.submit(class="btn-primary") }}
+      </form>
+    </div>
+  </main>
+
+{% endblock %}
